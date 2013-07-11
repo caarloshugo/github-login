@@ -1,17 +1,18 @@
 <?php
-$client_id = 'your_client_id;'
-$redirect_url = 'your_callback_url';
- 
+$client_id     = 'your_client_id;'
+$redirect_url  = 'your_callback_url';
+$client_secret = 'your_client_secret';
+
 //authorised at github
 if(isset($_GET['code'])) {
 	$code = $_GET['code'];
 	 
 	//perform post request now
 	$post = http_build_query(array(
-		'client_id' => $client_id ,
-		'redirect_uri' => $redirect_url ,
-		'client_secret' => 'your_client_secret',
-		'code' => $code ,
+		'client_id'     => $client_id ,
+		'redirect_uri'  => $redirect_url ,
+		'client_secret' => $client_secret,
+		'code' 			=> $code ,
 	));
 	 
 	$context = stream_context_create(array("http" => array(
